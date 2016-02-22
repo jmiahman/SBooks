@@ -16,12 +16,6 @@ import java.util.Optional;
 
 public class SBooksExecutor implements CommandExecutor
 {
-	private String SBooks;
-
-	public SBooksExecutor(String SBooks)
-	{
-		this.SBooks = SBooks;
-	}
 
 	public CommandResult execute(CommandSource src, CommandContext args) throws CommandException
 	{

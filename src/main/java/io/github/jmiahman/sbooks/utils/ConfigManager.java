@@ -36,13 +36,10 @@ public class ConfigManager
 		List<Text> pages = Lists.newArrayList();
 		CommentedConfigurationNode valueNode = Configs.getConfig(bookConfig).getNode("book", "pages");
 
-		for (Object page : valueNode.getChildrenMap().keySet())
+		for (int page = 1; page <= valueNode.getChildrenMap().keySet().size(); page++)
 		{
-			int pageNum = 1;
-		/*	String pageString = Configs.getConfig(bookConfig).getNode("book", "pages", String.valueOf(page)).getString(); */
-			String pageString = Configs.getConfig(bookConfig).getNode("book", "pages", pageNum).getString();
+			String pageString = Configs.getConfig(bookConfig).getNode("book", "pages", String.valueOf(page)).getString();
 			pages.add(TextSerializers.FORMATTING_CODE.deserialize(pageString));
-			pageNum = pageNum + 1;
 		}
 
 		return pages;

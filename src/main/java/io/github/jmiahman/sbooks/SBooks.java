@@ -94,31 +94,39 @@ public class SBooks
 		// Create book.conf
 		BookConfig.getConfig().setup();
 	
-		HashMap<List<String>, CommandSpec> subcommands = new HashMap<List<String>, CommandSpec>();
+/*		HashMap<List<String>, CommandSpec> subcommands = new HashMap<List<String>, CommandSpec>();
 
                 subcommands.put(Arrays.asList("book"), CommandSpec.builder()
-                        .permission("SBooks.book")
+                        .permission("sbooks.book")
                         .description(Text.of("Obtian a SBooks' Book"))
-                        /* .arguments(GenericArguments.seq(GenericArguments.onlyOne(GenericArguments.string(Text.of("book name"))))) */
+                        .arguments(GenericArguments.seq(GenericArguments.onlyOne(GenericArguments.string(Text.of("book name")))))
                         .executor(new SBooksBookExecutor())
                         .extendedDescription(Text.of("To use /SBooks book simply do /SBooks book"))
                         .build());
 
 
 		subcommands.put(Arrays.asList("reload"), CommandSpec.builder()
-			.permission("SBooks.reload")
+			.permission("sbooks.reload")
 			.description(Text.of("Reload the SBooks Config"))
 			.executor(new SBooksReloadExecutor())
 			.extendedDescription(Text.of("To reload the config, simply do /SBooks reload"))
 			.build());
-
+*/
 		CommandSpec sbooksCommandSpec = CommandSpec.builder()
 			.extendedDescription(Text.of("SBooks Command"))
 			.permission("sbooks.use")
-			.children(subcommands)
+			.executor(new SBooksBookExecutor())
 			.build();
 
-		game.getCommandManager().register(this, sbooksCommandSpec, "sbooks");
+                game.getCommandManager().register(this, sbooksCommandSpec, "sbooks");
+
+                CommandSpec sbooksreloadCommandSpec = CommandSpec.builder()
+                        .extendedDescription(Text.of("Reload the SBooks Config"))
+                        .permission("sbooks.reload")
+                        .executor(new SBooksReloadExecutor())
+                        .build();
+
+		game.getCommandManager().register(this, sbooksreloadCommandSpec, "sbooks-reload");
 
 		Sponge.getEventManager().registerListeners(this, new PlayerJoinListener());
 

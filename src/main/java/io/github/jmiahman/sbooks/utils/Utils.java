@@ -17,7 +17,6 @@ import java.util.UUID;
 
 public class Utils
 {
-
 	public static void givePlayerBook(Player player)
 	{
 		ItemStack stack = ItemStack.builder().itemType(ItemTypes.WRITTEN_BOOK).quantity(1).build();
