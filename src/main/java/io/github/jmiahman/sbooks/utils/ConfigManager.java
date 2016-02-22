@@ -2,7 +2,6 @@ package io.github.jmiahman.sbooks.utils;
 
 import com.google.common.collect.Lists;
 import io.github.jmiahman.sbooks.config.BookConfig;
-import io.github.jmiahman.sbooks.config.Config;
 import io.github.jmiahman.sbooks.config.Configs;
 import io.github.jmiahman.sbooks.config.Configurable;
 import ninja.leaping.configurate.ConfigurationNode;
@@ -20,7 +19,6 @@ import java.util.concurrent.TimeUnit;
 
 public class ConfigManager
 {
-	private static Configurable config = Config.getConfig();
 	private static Configurable bookConfig = BookConfig.getConfig();
 
 	public static Text getBookTitle()

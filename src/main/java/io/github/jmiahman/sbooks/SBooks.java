@@ -6,9 +6,6 @@ import io.github.jmiahman.sbooks.cmds.SBooksBookExecutor;
 import io.github.jmiahman.sbooks.cmds.SBooksExecutor;
 import io.github.jmiahman.sbooks.cmds.SBooksReloadExecutor;
 import io.github.jmiahman.sbooks.config.BookConfig;
-import io.github.jmiahman.sbooks.config.Config;
-import io.github.jmiahman.sbooks.config.SBooksConfig;
-import io.github.jmiahman.sbooks.config.PlayerDataConfig;
 import io.github.jmiahman.sbooks.listeners.PlayerJoinListener;
 import io.github.jmiahman.sbooks.utils.ConfigManager;
 import io.github.jmiahman.sbooks.utils.Utils;
@@ -96,6 +93,8 @@ public class SBooks
 
 		// Create book.conf
 		BookConfig.getConfig().setup();
+	
+		HashMap<List<String>, CommandSpec> subcommands = new HashMap<List<String>, CommandSpec>();
 
                 subcommands.put(Arrays.asList("book"), CommandSpec.builder()
                         .permission("SBooks.book")
@@ -119,9 +118,7 @@ public class SBooks
 			.children(subcommands)
 			.build();
 
-		game.getCommandManager().register(this, SBooksCommandSpec, "sbooks");
-
-		Utils.restartTasks();
+		game.getCommandManager().register(this, sbooksCommandSpec, "sbooks");
 
 		Sponge.getEventManager().registerListeners(this, new PlayerJoinListener());
 
