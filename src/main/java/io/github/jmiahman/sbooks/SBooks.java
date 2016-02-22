@@ -133,7 +133,7 @@ public class SBooks
 		getLogger().info("-----------------------------");
 		getLogger().info("SBooks was made by JMiahMan!");
 		getLogger().info("Please post all errors with SBooks on the Sponge Thread or on GitHub!");
-		getLogger().info("Have fun, and enjoy your SBooks! :D");
+		getLogger().info("Have fun, and enjoy your SBooks! :P");
 		getLogger().info("-----------------------------");
 		getLogger().info("SBooks Loaded!");
 	}
